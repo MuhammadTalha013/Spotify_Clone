@@ -19,7 +19,7 @@
     filter: invert(1);
 }
 .bg-grey{
-    background-color: #1f1f1f;
+    background-color:#222222;
 }
 .rounded{
     border-radius: 7px;
@@ -29,4 +29,40 @@
 }
 .p-1{
     padding: 10px;
+}
+
+/* For WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #2e2e2e; /* Dark background for the scrollbar track */
+    border-radius: 10px; /* Rounded corners for the scrollbar track */
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #555; /* Darker color for the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); /* Optional: adds a shadow to the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #777; /* Lighter color when hovering over the scrollbar thumb */
+}
+
+/* For Firefox */
+html {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #555 #2e2e2e; /* Thumb and track colors */
+}
+
+/* For Internet Explorer 10+ */
+body {
+    -ms-overflow-style: -ms-autohiding-scrollbar; /* Hides scrollbar when not in use */
+}
+
+/* For Microsoft Edge (old versions) */
+body {
+    overflow: -ms-autohiding-scrollbar;
 }
