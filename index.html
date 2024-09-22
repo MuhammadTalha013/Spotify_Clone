@@ -8,7 +8,7 @@
     <title>Spotify - Web Player: Music for everyone</title>
   </head>
   <body>
-    <div class="contaier flex bg-black">
+    <div class="container flex bg-black">
       <div class="left">
         <div class="home bg-grey rounded m-1 p-1">
           <div class="logo"><img class="invert" src="logo.svg" alt="" /></div>
@@ -21,6 +21,9 @@
           <div class="heading">
             <img class="invert" src="playlist.svg" alt="" />
             <h2>Your Library</h2>
+          </div>
+          <div class="songList">
+            <ul></ul>
           </div>
           <div class="footer">
             <div>
@@ -123,19 +126,19 @@
               <h2>Chilled Classics</h2>
               <p>Hits to boost your mood and fill you with happiness!</p>
             </div>
-            
           </div>
           <div class="playbar">
-            <div class="songinfo">
-              
+            <div class="seekbar">
+              <div class="circle"></div>
             </div>
-            <div class="songbuttons">
-              <img src="prevsong.svg" alt="">
-              <img src="play.svg" alt="">
-              <img src="nextsong.svg" alt="">
-            </div>
-            <div class="songtime">
-
+            <div class="abovebar">
+              <div class="songinfo"></div>
+              <div class="songbuttons">
+                <img id="prevoius" src="prevsong.svg" alt="" />
+                <img id="play" src="play.svg" alt="" />
+                <img id="next" src="nextsong.svg" alt="" />
+              </div>
+              <div class="songtime"></div>
             </div>
           </div>
         </div>
