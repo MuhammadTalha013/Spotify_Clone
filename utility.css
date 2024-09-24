@@ -2,7 +2,7 @@
     border: 2px solid red;
     margin: 3px;
 }
-.flex{
+.flex{  
     display: flex;
 }
 .justify-center{
