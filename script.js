@@ -71,7 +71,7 @@ async function main() {
       playMusic(e.querySelector(".info").firstElementChild.innerHTML);
     });
   });
-  //Attach an event listener to play, next & previous
+  //Attach an event listener to play
   play.addEventListener('click', ()=>{
     if (currentSong.paused) {
       currentSong.play()
@@ -83,8 +83,9 @@ async function main() {
     }
   })
   //Listen for timeupdate event
+  // timeupdate: Triggered as the audio plays, allowing us to track the current time.
   currentSong.addEventListener('timeupdate', ()=>{
-    console.log(currentSong.currentTime, currentSong.duration)
+    // console.log(currentSong.currentTime, currentSong.duration)
     document.querySelector('.songtime').innerHTML = `${convertSecondsToMMSS(currentSong.currentTime)} / ${convertSecondsToMMSS(currentSong.duration)}`
     document.querySelector('.circle').style.left = (currentSong.currentTime/currentSong.duration)*100+"%"
   })
@@ -106,14 +107,26 @@ async function main() {
    previous.addEventListener('click', ()=>{
     console.log('Previous clicked');
     console.log(currentSong);
+    let index = songs.indexOf(currentSong.src.split('/').slice(-1)[0])
+    if ((index-1) >= 0) {
+      playMusic(songs[index-1])
+    }
    })
    //Add an event listener to next
    next.addEventListener('click', ()=>{
     console.log('Next clicked');
-    console.log(currentSong.src);
-    console.log(songs);
+    console.log(currentSong)
+    // console.log(currentSong.src);
+    // console.log(currentSong.src.split('/'));
+    // console.log(currentSong.src.split('/').slice(-1));
+    // console.log(currentSong.src.split('/').slice(-1)[0]);
+    // console.log(songs.indexOf(currentSong.src.split('/').slice(-1)[0]));
+    let index = songs.indexOf(currentSong.src.split('/').slice(-1)[0])
+    if ((index+1) > length) {
+      playMusic(songs[index+1])
+    }
+    // console.log(songs,index);
    })
-
 
 }
 main();
