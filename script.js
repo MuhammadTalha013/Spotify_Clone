@@ -1,4 +1,5 @@
 let currentSong = new Audio();
+let songs;
 
 function convertSecondsToMMSS(seconds) {
   // Ensure the input is a non-negative integer
@@ -43,7 +44,7 @@ const playMusic = (track) => {
 
 async function main() {
   //Get the list of all songs
-  let songs = await getSongs();
+  songs = await getSongs();
   //Show all the songs in the playlist
   let songUL = document
     .querySelector(".songList")
@@ -84,7 +85,7 @@ async function main() {
   //Listen for timeupdate event
   currentSong.addEventListener('timeupdate', ()=>{
     console.log(currentSong.currentTime, currentSong.duration)
-    document.querySelector('.songtime').innerHTML = `${convertSecondsToMMSS(currentSong.currentTime)}/${convertSecondsToMMSS(currentSong.duration)}`
+    document.querySelector('.songtime').innerHTML = `${convertSecondsToMMSS(currentSong.currentTime)} / ${convertSecondsToMMSS(currentSong.duration)}`
     document.querySelector('.circle').style.left = (currentSong.currentTime/currentSong.duration)*100+"%"
   })
   //Add an event listener to seekbar 
@@ -101,6 +102,17 @@ async function main() {
   document.querySelector(".close").addEventListener("click", ()=>{
     document.querySelector(".left").style.left = "-120%"
   })
+  //Add an event listener to previous
+   previous.addEventListener('click', ()=>{
+    console.log('Previous clicked');
+    console.log(currentSong);
+   })
+   //Add an event listener to next
+   next.addEventListener('click', ()=>{
+    console.log('Next clicked');
+    console.log(currentSong.src);
+    console.log(songs);
+   })
 
 
 }

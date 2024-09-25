@@ -8,6 +8,9 @@ body {
   background-color: black;
   color: white;
 }
+.close{
+  display: none;
+}
 .left {
   width: 25vw;
   padding: 10px;
@@ -62,6 +65,9 @@ body {
   padding: 20px;
 }
 .spotifyPlaylists {
+  padding: 16px;
+}
+.spotifyPlaylists h1{
   padding: 16px;
 }
 .cardContainer {
@@ -240,13 +246,14 @@ body {
     width: 29px;
   }
   .right {
+    margin: 0px;
     width: 100vw;
   }
   .playbar {
-    width: calc(100vw - 60px);
+    width: calc(100vw - 75px);
   }
   .seekbar{
-    width: calc(100vw - 70px);
+    width: calc(100vw - 120px);
   }
   .hamburger {
     display: block;
@@ -257,5 +264,13 @@ body {
   .cardContainer{
     margin: 0;
     justify-content: center;
+  }
+  .close{
+    display: block;
+  }
+  .abovebar{
+    flex-direction: column;
+    gap: 23px;
+    align-items: center;
   }
 }
