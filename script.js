@@ -77,8 +77,10 @@ const playMusic = (track) => {
 async function main() {
   //Get the list of all songs
   await getSongs("songs/ncs");
-  playMusic(songs[0], true);
+  // playMusic(songs[0], true);
 
+  //Display all the albums on the page
+  
   //Attach an event listener to play
   play.addEventListener("click", () => {
     if (currentSong.paused) {
@@ -163,7 +165,11 @@ async function main() {
   Array.from(document.getElementsByClassName("card")).forEach((e) => {
     console.log(e);
     e.addEventListener("click", async (item) => {
-      console.log(item, item.currentTarget.dataset);
+      // console.log(item);
+      // console.log(item.currentTarget);
+      // console.log(item, item.currentTarget.dataset);
+      // console.log(item, item.currentTarget.dataset.folder);
+      // console.log(item, item.currentTarget.dataset);
       songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`);
     });
   });
