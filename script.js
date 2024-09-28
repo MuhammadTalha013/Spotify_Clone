@@ -80,6 +80,7 @@ async function main() {
   // playMusic(songs[0], true);
 
   //Display all the albums on the page
+
   
   //Attach an event listener to play
   play.addEventListener("click", () => {
@@ -161,6 +162,23 @@ async function main() {
       currentSong.volume = parseInt(e.target.value) / 100;
     });
 
+    //Add an event listener to mute the track
+    document.querySelector('.volume>img').addEventListener('click', e=>{
+      console.log(e.target)
+      console.log('changing', e.target.src)
+      if (e.target.src.includes('volume.svg')) {
+        e.target.src = e.target.src.replace('volume.svg','mute.svg')
+        currentSong.volume = 0;
+        document.querySelector('.range').getElementsByTagName('input')[0].value = 0;
+      }
+      else{
+        e.target.src = e.target.src.replace('mute.svg','volume.svg')
+        currentSong.volume = .10;
+        document.querySelector('.range').getElementsByTagName('input')[0].value = 50;
+
+      }
+    })
+
   //Load the playlist whenever card is clicked
   Array.from(document.getElementsByClassName("card")).forEach((e) => {
     console.log(e);
@@ -173,5 +191,6 @@ async function main() {
       songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`);
     });
   });
+
 }
 main();
